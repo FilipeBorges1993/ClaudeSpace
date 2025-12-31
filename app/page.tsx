@@ -41,6 +41,22 @@ export default function Home() {
       </div>
 
       <Agents />
+      <div className="w-full max-w-4xl px-4 py-8 flex justify-end">
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <Image
+            src="/connector2.svg"
+            alt="Connector"
+            width={400}
+            height={300}
+            className="w-64 h-auto hidden md:block mr-[5%] mt-[-100px]"
+          />
+        </motion.div>
+      </div>
     </main>
   );
 }
