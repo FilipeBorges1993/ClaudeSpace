@@ -29,17 +29,18 @@ export default function Home() {
             className="w-full h-auto"
           />
         </motion.div>
+
+
+        <Image
+        src="/connector_1.svg"
+        alt="Connector"
+        width={400}
+        height={300}
+        className="w-64 h-auto hidden md:block self-start ml-8 mt-[-100px]"
+      />
       </div>
 
-      {/* Connector 1 */}
-      <svg className="w-64 h-24 text-gray-800 -mt-10 mb-[20px] hidden md:block" viewBox="0 0 100 50" fill="none">
-         <path d="M20 0 Q 0 25 80 50" stroke="currentColor" strokeWidth="1" />
-      </svg>
-
-      {/* Agents Section */}
       <Agents />
-
-      {/* <Footer /> */}
     </main>
   );
 }
