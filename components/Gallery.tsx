@@ -3,6 +3,12 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import localFont from "next/font/local";
+
+const honkFont = localFont({
+  src: "../public/fonts/Honk-Regular.ttf",
+  display: "swap",
+});
 
 type Star = {
   id: number;
@@ -68,19 +74,34 @@ export default function Gallery() {
           />
         ))}
         <motion.div
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="relative z-10 mt-[50px]"
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           style={{
             filter: "drop-shadow(0 0 20px rgba(255, 255, 255, 0.3))",
           }}
         >
-          <Image
-            src="/Gallery.svg"
-            alt="Gallery"
-            width={334}
-            height={122}
-          />
+          <span
+            className={`text-white ${honkFont.className}`}
+            style={{
+              fontSize: "5rem",
+            }}
+          >
+            {"Claude Space !".split("").map((char, index) => (
+              <motion.span
+                key={index}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{
+                  duration: 0.1,
+                  delay: index * 0.15,
+                  ease: "easeOut",
+                }}
+              >
+                {char}
+              </motion.span>
+            ))}
+          </span>
         </motion.div>
       </div>
 
