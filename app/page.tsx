@@ -1,14 +1,9 @@
 "use client";
 
 import Hero from "@/components/Hero";
-import MindMap from "@/components/MindMap";
 import Agents from "@/components/Agents";
-import TraceHistory from "@/components/TraceHistory";
-import PlanGallery from "@/components/PlanGallery";
-import Footer from "@/components/Footer";
 import ChatDebug from "@/components/ChatDebug";
 import Gallery from "@/components/Gallery";
-import ScrollBackground from "@/components/ScrollBackground";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
