@@ -4,6 +4,8 @@ import Hero from "@/components/Hero";
 import Agents from "@/components/Agents";
 import ChatDebug from "@/components/ChatDebug";
 import Gallery from "@/components/Gallery";
+import DownloadSection from "@/components/DownloadSection";
+import LinksSection from "@/components/LinksSection";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -94,6 +96,8 @@ export default function Home() {
       </motion.div>
 
       <Gallery />
+      <LinksSection />
+      <DownloadSection />
     </main>
   );
 }
