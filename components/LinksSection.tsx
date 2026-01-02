@@ -9,13 +9,32 @@ export default function LinksSection() {
       name: "This is an Open source project\nso can you help us ?!",
       url: "https://github.com/BorisCorp",
       icon: "/white/Git Sticker.gif",
+      position: "self-start",
+      rotate: -5,
+      color: "text-green-400",
+    },
+    {
+      name: "Join our Discord \nand be part of the team!",
+      url: "https://discord.gg/BorisCorp",
+      icon: "/white/Video Games Logo Sticker by Discord.gif",
+      position: "self-center ",
+      rotate: 3,
+      color: "text-purple-400",
+    },
+    {
+      name: "Donate me please!\nI'm broke!",
+      url: "https://donate.boriscorp.com",
+      icon: "/white/Level Up Sticker Sticker by Percolate Galactic.gif",
+      position: "self-end ",
+      rotate: 5,
+      color: "text-yellow-400",
     },
   ];
 
   return (
     <section className="w-full py-16 flex justify-center bg-[#1a1a2e]">
       <motion.div
-        className="flex flex-wrap gap-8 w-full max-w-6xl px-8"
+        className="flex flex-row justify-between items-end w-full max-w-6xl px-1"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.3 }}
@@ -27,11 +46,11 @@ export default function LinksSection() {
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex flex-col items-center gap-3 "
-            whileHover={{ scale: 1.1, rotate: 15 }}
+            className="group flex flex-col items-center gap-2 flex-1"
+            whileHover={{ scale: 1.05, rotate: link.rotate + 5 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, y: 20, rotate: 0 }}
-            whileInView={{ opacity: 1, y: 0, rotate: -10 }}
+            whileInView={{ opacity: 1, y: 0, rotate: link.rotate }}
             viewport={{ once: false }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
           >
@@ -41,11 +60,11 @@ export default function LinksSection() {
                 alt={link.name}
                 width={120}
                 height={120}
-                className="w-24 h-24 md:w-32 md:h-32 object-contain"
+                className="h-20 object-contain"
                 unoptimized
               />
             </div>
-            <span className="text-green-400 group-hover:text-white font-medium transition-colors whitespace-pre-line text-center">
+            <span className={`${link.color} font-medium transition-colors whitespace-pre-line text-center`}>
               {link.name}
             </span>
           </motion.a>

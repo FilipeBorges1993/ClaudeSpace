@@ -11,7 +11,7 @@ const excalifont = localFont({
 
 export default function DownloadSection() {
   return (
-    <div className="w-full bg-[#1a1a2e] py-20 flex flex-col items-center gap-8">
+    <div className="w-full bg-[#1a1a2e] py-20 flex flex-col items-center gap-8 relative">
       {/* Platform Icons */}
       <div className="flex items-center gap-2">
         <div className="relative w-8 h-8 mt-[-5px]">
@@ -104,6 +104,23 @@ export default function DownloadSection() {
           DOWNLOAD
         </span>
       </motion.a>
+
+      {/* Boris Logo */}
+      <motion.div
+        className="flex justify-center mt-2 mb-[-50px] w-full"
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.5 }}
+      >
+        <Image
+          src="/white/borisLogo.png"
+          alt="Boris Logo"
+          width={80}
+          height={80}
+          className="object-contain "
+        />
+      </motion.div>
     </div>
   );
 }
