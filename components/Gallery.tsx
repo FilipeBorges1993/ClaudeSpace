@@ -53,26 +53,26 @@ export default function Gallery() {
 
   return (
     <>
-      {/* Gradient transition with Gallery title centered inside */}
-      <div
-        className="w-full h-[50px] flex items-center justify-center"
-        style={{
-          background: "linear-gradient(to bottom, #eef0f300 0%, #1a1a2e 100%)"
-        }}
-      >
-        <motion.div
-          className="flex justify-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+      {/* Sketchy Wave Divider */}
+      <div className="relative w-full overflow-hidden" style={{ marginTop: "-2px" }}>
+        <motion.svg
+          viewBox="0 0 2880 120"
+          className="h-auto block"
+          style={{ width: "200%" }}
+          preserveAspectRatio="none"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ duration: 60, repeat: Infinity, ease: "linear", repeatType: "loop" }}
         >
-
-        </motion.div>
+          {/* Dark fill below the wave - repeated for seamless loop */}
+          <path
+            d="M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 C1680,100 1920,20 2160,60 C2400,100 2640,20 2880,60 L2880,120 L0,120 Z"
+            fill="#1a1a2e"
+          />
+        </motion.svg>
       </div>
 
       {/* Fixed Dark Zone - continues after gradient */}
-      <div className="w-full bg-[#1a1a2e] min-h-[200px] relative flex justify-center overflow-hidden">
+      <div data-section="dark" className="w-full bg-[#1a1a2e] min-h-[200px] relative flex justify-center overflow-hidden">
         {/* Stars */}
         {stars.map((star) => (
           <div
@@ -89,7 +89,7 @@ export default function Gallery() {
           />
         ))}
         <motion.div
-          className="relative z-10 mt-[50px] flex flex-col items-center"
+          className="relative z-20 mt-[50px] flex flex-col items-center"
           animate={{ y: [0, -15, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           style={{
@@ -129,9 +129,45 @@ export default function Gallery() {
         </motion.div>
       </div>
 
+      {/* Clouds sticker on left, Thunder on right */}
+      <div className="w-full bg-[#1a1a2e]">
+        <div className="max-w-7xl mx-auto relative">
+          <motion.div
+            className="absolute left-[-70px] rotate-[-15deg] mt-[-50px]"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Image
+              src="/white/Clouds Sticker by Belisol Rotterdam.gif"
+              alt="Clouds sticker"
+              width={120}
+              height={120}
+              unoptimized
+            />
+          </motion.div>
+          <motion.div
+            className="absolute right-[-50px]  rotate-1 mt-[-250px]"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Image
+              src="/white/Clouds Sticker by Belisol Rotterdam.gif"
+              alt="Thunder sticker"
+              width={80}
+              height={120}
+              unoptimized
+            />
+          </motion.div>
+        </div>
+      </div>
+
       {/* Gallery Content */}
       <div className="w-full bg-[#1a1a2e] py-12 px-8">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-20">
           {galleryItems.map((item, index) => {
             const rotation = (index % 2 === 0 ? -1 : 1) * (index % 3 + 1);
             const isTopRow = index < 3;

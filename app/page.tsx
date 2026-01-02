@@ -6,12 +6,14 @@ import ChatDebug from "@/components/ChatDebug";
 import Gallery from "@/components/Gallery";
 import DownloadSection from "@/components/DownloadSection";
 import LinksSection from "@/components/LinksSection";
+import Fly from "@/components/Fly";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center overflow-x-hidden relative">
+      <Fly />
       <Hero />
 
       {/* Canvas Drawing */}

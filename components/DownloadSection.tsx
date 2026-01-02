@@ -11,9 +11,9 @@ const excalifont = localFont({
 
 export default function DownloadSection() {
   return (
-    <div className="w-full bg-[#1a1a2e] py-20 flex flex-col items-center gap-8 relative">
+    <div data-section="dark" className="w-full bg-[#1a1a2e] py-20 flex flex-col items-center gap-8 relative">
       {/* Platform Icons */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 relative z-20">
         <div className="relative w-8 h-8 mt-[-5px]">
           <Image
             src="/white/apple-xxl.png"
@@ -35,7 +35,7 @@ export default function DownloadSection() {
       {/* Download Button */}
       <motion.a
         href="#"
-        className={`relative px-44 py-4 ${excalifont.className} mt-[-15px]`}
+        className={`relative z-20 px-44 py-4 ${excalifont.className} mt-[-15px]`}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
@@ -107,7 +107,7 @@ export default function DownloadSection() {
 
       {/* Boris Logo */}
       <motion.div
-        className="flex justify-center mt-2 mb-[-50px] w-full"
+        className="flex justify-center mt-2 mb-[-50px] w-full relative z-20"
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: false }}
